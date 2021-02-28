@@ -3,13 +3,14 @@ import React, { Component } from 'react';
 class ToyCard extends Component {
 
   render() {
+    const {id, name, image, likes} = this.props.toyinfo
     return (
-      <div className="card">
-        <h2>{'' /* Toy's Name */}</h2>
-        <img src={'' /* Toy's Image */} alt={'' /* Toy's Name */} className="toy-avatar" />
-        <p>{'' /* Toy's Likes */} Likes </p>
-        <button className="like-btn">Like {'<3'}</button>
-        <button className="del-btn">Donate to GoodWill</button>
+      <div key= {name} className="card">
+        <h2>{name}</h2>
+        <img src={image} alt={name} className="toy-avatar" />
+        <p>{likes} Likes </p>        
+        <button onClick = {() => this.props.toyLikes(id)} className="like">Like {'<3'}</button>
+        <button onClick = {() => this.props.donateToy(id)} className="del-btn">Donate to GoodWill</button>
       </div>
     );
   }
